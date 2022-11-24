@@ -1,5 +1,5 @@
 //continue 27: PUT method:for updating the data
-//like: www.store.com/api/order/:id  >>update specific order(params+send data) 
+//like: www.store.com/api/order/:id >>update specific order(params+send data) 
 //www.store.com/api/order/:id is a convention and it can be written other ways
 
 const express = require('express')
@@ -40,26 +40,26 @@ app.post('/login',(req,res)=>{
 
 //NEW: first the item should be exist to be update
 //when we are working with put method like post method we need to send something in body--e.g. if we change the name susan to peter we need to supply this value 
-//we need two suplly two parameter 1.params(id) 2. value
+//we need two supply two parameter 1.params(id) 2. value
 app.put('/api/people/:id',(req,res)=>{    //we can call :id whatever we want
-    //the two parameters here are id ans name
+    //the two parameters here are id and name
     const{id} = req.params   //req.params gives us the id
     const{name} = req.body
     // console.log(id,name)
     // res.send('hello world')  //in postman>>put>>json,raw,body>>{"name":"peter"}>>answer:hello world
     //so in postman we send the id in url and the value in the body
 
-    //now we want to get the person we want id, if the id doesn't exist we send back an error and if the id exists then we change the value
+    //now when we want to get the person we need id, if the id doesn't exist we send back an error and if the id exists then we change the value
     const person = people.find((person)=>{
         return person.id === Number(id)   //if the person id equal to id
     })
     if(!person){   //404:if we can not find the resource
         return res.status(404).json({success:false,msg:`no person with id ${id}`})
     }
-    //if the person exist then we should iterate over the array to find the specific person whose id matches the params value and then i will change that person's name
+    //if the person exist then we should iterate over the array to find the specific person whose id matches the params value and then we will change that person's name
     const newPeople = people.map((person)=>{
         if(person.id === Number(id)){
-            person.name = name    //person.name is equal to the name that we want (my name)
+            person.name = name    //person.name is equal to the name that we want
         }
         return person  //else-return the person
     })
