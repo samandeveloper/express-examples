@@ -1,14 +1,13 @@
-//31
+//file number 31
 const express = require('express')
 //instead of app we go with router which comes from express
 //below is the way to setup the router
 const router = express.Router();
 
-//New: bring the below line: but add . to it since we move the files to routes folder
+//New: bring the below line: but add ../ to it since we move the files to routes folder
 let {people} = require('../data') 
 
-
-//change the path and remove the main path ('/api/people') that we have on file 31 
+//change the path and remove the main path ('/api/people') that we have on file number 31 
 
 //copy and paste http methods except the one with '/login' path from the file 30 to here 
 //now change the app to router since we want the router handles the routes not the app
@@ -56,7 +55,6 @@ router.put('/:id',(req,res)=>{
     })
     res.status(200).json({success:true,data:newPeople})
 })
-
 
 router.delete('/:id' , (req,res)=>{
     const person = people.find((person)=>
