@@ -1,11 +1,11 @@
 //New section: express router
-//when we add many routes our app become very busy like 29
-//solution: using express router-- it will group the routers and set them up as seperate controllers
+//when we add many routes, our app become very busy like 29
+//solution: using express router--it will group the routers and set them up as seperate controllers
 //this common setup is called mvc (modal view controller) which is a pattern when we are setting up the api
 //mvc should be connect to database--but for now we are reading from internal file
 
 //below we will create a group for /api/people because it is repeating constantly but in the seperate file--create routes folder
-//inside routes folder create files like: auth.js (for login), people.js
+//inside routes folder create files like: auth.js (for login), and people.js
 
 const express = require('express')
 const app = express()
