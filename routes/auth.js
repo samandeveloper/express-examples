@@ -1,8 +1,7 @@
-//31
+//with file number 31
 const express = require('express')
 //user auth instead of app
 const router = express.Router()
-
 
 //change the app to router--replace the /login path to / 
 router.post('/',(req,res)=>{
