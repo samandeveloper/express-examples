@@ -1,6 +1,5 @@
 //continue 26:working with postman tool for api:
 
-
 const express = require('express')
 const app = express()
 let {people} = require('./data') 
@@ -28,8 +27,8 @@ app.post('/api/people',(req,res)=>{
     res.status(201).json({success:true,person:name})
 })
 
-//NEW: for postman test--we grab the name (like peter) and then we add it to the people array
-//go to postman>>set method:post>>select: body,raw, and json>> add a name in json like: {"name":"peter"}>>click send>>see the answer
+//NEW: for postman--we grab the name (like peter) and then we add it to the people array
+//go to postman>>set method:post>>select: body,raw, and json>> add a name in json like: {"name":"peter"}>>click send>>see the results
 app.post('/api/postman/people',(req,res)=>{
     const{name} = req.body
     if(!name){
@@ -40,7 +39,6 @@ app.post('/api/postman/people',(req,res)=>{
 
 //POST-for regular tab
 app.post('/login',(req,res)=>{
-    //NOTE:The req.body object allows you to access data in a string or JSON object from the client side. You generally use the req. body object to receive data through POST and PUT requests in the Express server.
     console.log(req.body)
     //NEW
     const {name} = req.body   
