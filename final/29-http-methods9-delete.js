@@ -1,7 +1,7 @@
 //continue 28: Delete method
 //e.g. www.store.com/api/orders/:id (can be different). like put method, for delete method we need id
- //similar to put, but when we are deleting we don't expect anything in the body
- //we delete method, we just remove the data that we want from our list
+//similar to put, but when we are deleting we don't expect anything in the body
+//in delete method, we just remove the data that we don't want from our list
 //Important note: if the path are the same in app.get, app.post,app.put and app.delete these requests are different and because the path is the same doesn't mean they are the same
 
 const express = require('express')
@@ -68,7 +68,7 @@ app.put('/api/people/:id',(req,res)=>{
 //NEW: delete method
 app.delete('/api/people/:id' , (req,res)=>{
     //first we look for the person and send back the response, if the person exists we remove the person from array
-    //similar to put but here we directly accessing the params objects that's why instead of Number(id) we use 
+    //similar to put but here we directly accessing the params objects
     //instead of Number(id) in put method, in delete method we should use params like Number(req.params.id)
     const person = people.find((person)=>
         person.id === Number(req.params.id))
